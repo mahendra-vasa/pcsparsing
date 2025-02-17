@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.ModuleOrderImpl"
+    proxy="com.freightliner.pcsparsing.impl.ModuleOrderImpl" table="PXOMOD" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" name="compID" class="com.freightliner.pcsparsing.impl.ModulePK">
+     	<key-property column="tso_split_no" name="serialNumber" />
+      	<key-property column="module_no" name="number" />
+      	<key-property column="seq_no" name="sequenceNumber" />
+    </composite-id>
+
+    <one-to-one name="module" class="com.freightliner.pcsparsing.impl.ModuleImpl" outer-join="auto" constrained="true"/> 
+  </class>
+</hibernate-mapping>

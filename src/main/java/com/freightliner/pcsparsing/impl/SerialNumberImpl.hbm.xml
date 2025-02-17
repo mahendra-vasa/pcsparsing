@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.SerialNumberImpl"
+    proxy="com.freightliner.pcsparsing.impl.SerialNumberImpl" 
+    table="PXTSN"
+    mutable="true" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" >
+      <key-property column="tso_split_no" name="number" />
+    </composite-id>
+
+    <property name="cmcsNumber" column="job_no" />
+    <property name="description" column="desc" />
+    <property name="explodeCode" column="expld_indc" />
+    <property name="invalidCode" column="inval_indc" />
+    <property name="lastUpdated" column="ts_last_updt" type="timestamp" />
+    <property name="markedForDeletionCode" column="del_indc" />
+    <property name="parseCode" column="parsed_indc" />
+ 
+  </class>
+</hibernate-mapping>

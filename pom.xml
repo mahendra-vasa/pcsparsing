@@ -1,0 +1,271 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ibm.ta</groupId>
+  <artifactId>PCSParsing</artifactId>
+  <version>1.0.0</version>
+  <packaging>war</packaging>
+  <name>PCSParsing</name>
+  <description>PCSParsing</description>
+  
+  
+<!-- Just Testing Something-->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- Plugin versions -->
+    <version.liberty-maven-plugin>3.7.1</version.liberty-maven-plugin>
+    <version.maven-failsafe-plugin>3.0.0</version.maven-failsafe-plugin>
+    <version.maven-surefire-plugin>3.0.0</version.maven-surefire-plugin>
+    <!-- Liberty configuration -->
+    <liberty.var.default.http.port>9080</liberty.var.default.http.port>
+    <liberty.var.default.https.port>9443</liberty.var.default.https.port>
+    <liberty.var.app.context.root>/PCSPAR</liberty.var.app.context.root>
+  </properties>
+
+  <dependencies>
+    <!-- Dependencies -->
+    <dependency>
+      <groupId>org.eclipse.microprofile</groupId>
+      <artifactId>microprofile</artifactId>
+      <version>6.0</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+
+ 
+
+
+     <!-- https://mvnrepository.com/artifact/com.ibm.db2/jcc -->
+<dependency>
+    <groupId>com.ibm.db2</groupId>
+    <artifactId>jcc</artifactId>
+    <version>11.1.4.4</version>
+</dependency>
+
+
+
+
+<!-- https://mvnrepository.com/artifact/com.ibm.db2/db2jcc -->
+
+<!--     
+    
+<dependency>
+    <groupId>c3p0</groupId>
+    <artifactId>c3p0</artifactId>
+    <version>0.8.4.5</version>
+</dependency>
+
+
+<dependency>
+    <groupId>cglib</groupId>
+    <artifactId>cglib-full</artifactId>
+    <version>2.0.1</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>1.1</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-digester</groupId>
+    <artifactId>commons-digester</artifactId>
+    <version>1.8</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-lang</groupId>
+    <artifactId>commons-lang</artifactId>
+    <version>1.0.1</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-logging</groupId>
+    <artifactId>commons-logging</artifactId>
+    <version>1.0.3</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-pool</groupId>
+    <artifactId>commons-pool</artifactId>
+    <version>1.1</version>
+</dependency>
+
+
+
+
+<dependency>
+    <groupId>commons-beanutils</groupId>
+    <artifactId>commons-beanutils</artifactId>
+    <version>1.9.4</version>
+</dependency>
+
+
+<dependency>
+    <groupId>commons-collections</groupId>
+    <artifactId>commons-collections</artifactId>
+    <version>2.1</version>
+</dependency>
+
+
+
+ 
+	<dependency>
+	    <groupId>xml-apis</groupId>
+	    <artifactId>xml-apis</artifactId>
+	    <version>1.0.b2</version>
+	</dependency>
+
+
+<dependency>
+    <groupId>xerces</groupId>
+    <artifactId>xerces</artifactId>
+    <version>2.4.0</version>
+</dependency>
+
+<dependency>
+    <groupId>xalan</groupId>
+    <artifactId>xalan</artifactId>
+    <version>2.4.0</version>
+</dependency>
+
+<dependency>
+    <groupId>swarmcache</groupId>
+    <artifactId>swarmcache</artifactId>
+    <version>1.0RC2</version>
+</dependency>
+
+<dependency>
+    <groupId>struts</groupId>
+    <artifactId>struts</artifactId>
+    <version>1.1</version>
+</dependency>
+
+<dependency>
+    <groupId>taglibs</groupId>
+    <artifactId>standard</artifactId>
+    <version>1.1.2</version>
+</dependency>
+
+<dependency>
+    <groupId>simple-jndi</groupId>
+    <artifactId>simple-jndi</artifactId>
+    <version>0.9</version>
+</dependency>
+
+<dependency>
+    <groupId>proxool</groupId>
+    <artifactId>proxool</artifactId>
+    <version>0.8.3</version>
+</dependency>
+
+<dependency>
+    <groupId>opensymphony</groupId>
+    <artifactId>oscache</artifactId>
+    <version>2.0.2</version>
+</dependency>
+
+<dependency>
+    <groupId>odmg</groupId>
+    <artifactId>odmg</artifactId>
+    <version>3.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>8.2.0</version>
+</dependency>
+
+
+<dependency>
+    <groupId>org.testcontainers</groupId>
+    <artifactId>mssqlserver</artifactId>
+    <version>1.5.1</version>
+    <scope>test</scope>
+</dependency> -->
+	  
+  </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>   
+    <plugins>   
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.0.0</version> <!-- Or the latest version -->        
+          <configuration>
+                <webResources>
+                    <resource>
+                        <directory>${project.basedir}/src/main/webapp</directory>
+                        <includes>
+                            <include>**/*.js</include>
+                            <include>**/*.html</include>
+                            <include>**/*.gif</include>
+                            <include>**/*.jsp</include>
+                            <include>**/*.css</include>                            
+                            <include>WEB-INF/</include>
+                        </includes>
+                    </resource>
+                </webResources>
+          </configuration>
+        </plugin>    
+        <plugin>
+          <groupId>com.googlecode.addjars-maven-plugin</groupId>
+          <artifactId>addjars-maven-plugin</artifactId>
+          <version>1.0.5</version>
+          <executions>
+            <execution>
+                <goals>
+                    <goal>add-jars</goal>
+                </goals>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <directory>${basedir}/lib</directory>
+                        </resource>
+                    </resources>            
+                </configuration>
+            </execution>
+          </executions>
+      </plugin>
+      <!-- Enable liberty-maven plugin -->
+      <plugin>
+        <groupId>io.openliberty.tools</groupId>
+        <artifactId>liberty-maven-plugin</artifactId>
+        <version>${version.liberty-maven-plugin}</version>
+        <configuration>
+          <serverName>PCSParsingServer</serverName>
+        </configuration>
+      </plugin>
+		
+		<!-- Plugin to run functional tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${version.maven-failsafe-plugin}</version>
+        <configuration>
+          <workingDirectory>${project.basedir}/src/main/resources</workingDirectory>
+          <systemPropertyVariables>
+            <http.port>${liberty.var.default.http.port}</http.port>
+            <https.port>${liberty.var.default.https.port}</https.port>
+            <app.context.root>${liberty.var.app.context.root}</app.context.root>
+          </systemPropertyVariables>
+          <!--<includes>
+            <include>**/*IT.java</include>
+          </includes>-->
+        </configuration>
+      </plugin>
+        
+            
+    </plugins>
+  </build>
+</project>

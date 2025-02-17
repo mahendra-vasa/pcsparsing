@@ -1,0 +1,251 @@
+FONT.ApplicationTitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 28px;
+    COLOR: 990033;
+    FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+TABLE.Visible
+{
+    BORDER-RIGHT: thin ridge;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: thin ridge;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    BORDER-LEFT: thin ridge;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: thin ridge;
+    BACKGROUND-COLOR: silver
+}
+
+TD.Title1
+{
+	FONT: bold 18px Arial, Helvetica, sans-serif;
+	COLOR: black;
+	BACKGROUND-COLOR: #e0e0e0;
+	TEXT-ALIGN: center;
+	padding: 5px;
+
+}
+
+TD.Title2
+{
+	FONT: bold 18px Arial, Helvetica, sans-serif;
+	COLOR: #ffffff;
+	BACKGROUND-COLOR: #990033;
+	TEXT-ALIGN: center;
+	padding: 5px;
+
+}
+
+TD.Title3
+{
+	FONT: bold 18px Arial, Helvetica, sans-serif;
+	COLOR: #ffffff;
+	BACKGROUND-COLOR: #006699;
+	TEXT-ALIGN: center;
+	padding: 5px;
+
+}
+
+TD.Detail1
+{
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: white;
+	padding: 3px;
+
+}
+TD.DetailBold
+{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: white;
+	padding: 3px;
+
+}
+
+TD.DetailHighlight
+{
+	BACKGROUND-COLOR: #FFFFCC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 3px;
+
+
+}
+
+TD.DetailError
+{
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+	padding: 3px;
+    BACKGROUND-COLOR: white
+}
+
+
+TD.ExplanatoryTextCentered
+{
+	FONT-SIZE: 8pt;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	BACKGROUND-COLOR: white;
+	TEXT-ALIGN: center;
+	padding: 3px;
+
+}
+
+TD.ExplanatoryText
+{
+	FONT-SIZE: 8pt;
+	COLOR: black;
+	FONT-FAMILY: Arial;
+	BACKGROUND-COLOR: white;
+	TEXT-ALIGN: left;
+	padding: 3px;
+
+}
+
+TD.Detail2
+{
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #E6E6E6;
+	padding: 3px;
+
+}
+
+TD.Detail2Error
+{
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #E6E6E6;
+	padding: 3px;
+
+}
+
+TD.Detail2Highlight
+{
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #C6C58C;
+	padding: 3px;
+
+}
+
+TD.Detail2Bold
+{
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #E5E5E5;
+	padding: 3px;
+	font-weight: bold;
+
+}
+
+
+
+
+INPUT.buttons
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #000000 1px solid;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: arial;
+    BACKGROUND-COLOR: #808080
+}
+
+
+SELECT.textfield
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    TEXT-TRANSFORM: uppercase;
+    COLOR: black;
+    FONT-FAMILY: arial
+}
+INPUT.textfield
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    TEXT-TRANSFORM: uppercase;
+    COLOR: black;
+    FONT-FAMILY: arial
+}
+
+
+TD.DetailBoldHighlight
+{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: black;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: #FFFFCC;
+	padding: 3px;
+
+}
+TD.DetailError
+{
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: red;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	BACKGROUND-COLOR: white;
+	padding: 3px;
+
+}
+.bodytext {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+
+}
+
+.bodytextbold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+
+}
+.subhead {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	font-weight: bold;
+	color: #000000;
+
+}
+
+SPAN.Alert
+{
+	BACKGROUND-COLOR: transparent;
+	color: #FF0000;
+
+}
+
+.buttonover 
+{  
+font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #FFFFFF; background-color: #999999; border: 2px solid #666666; height: 20px; width: 80px; margin-top: 0px; margin-right: 1px; margin-bottom: 0px; margin-left: 0px; cursor: hand; font-weight: bold
+}
+
+.buttonup 
+{ 
+font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #FFFFFF; background-color: #003366; border: 1px solid #999999; height: 20px; width: 80px; margin-top: 0px; margin-right: 1px; margin-bottom: 0px; margin-left: 0px ; cursor: hand; font-weight: bold
+}
+
+.buttonup1 
+{ 
+font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #FFFFFF; background-color: #CC0000; border: 1px solid #999999; height: 20px; width: 80px; margin-top: 0px; margin-right: 1px; margin-bottom: 0px; margin-left: 0px ; cursor: hand; font-weight: bold
+}

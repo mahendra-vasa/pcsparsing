@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.UserActionImpl"
+    proxy="com.freightliner.pcsparsing.impl.UserActionImpl" table="PXUA" mutable="true" >
+
+    <composite-id unsaved-value="any" >
+      <key-property name="serialNumber" column="tso_split_no"/>
+      <key-property name="userActivityCode" column="tso_user_acty_cd" />
+      <key-property name="user" column="lu_lid" />
+    </composite-id>
+    
+    <property name="timestamp" column="ts_last_updt" type="timestamp" />
+
+  </class>
+</hibernate-mapping>

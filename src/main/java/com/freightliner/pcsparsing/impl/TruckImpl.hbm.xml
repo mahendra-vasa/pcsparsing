@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.TruckImpl"
+    proxy="com.freightliner.pcsparsing.impl.TruckImpl"
+    table="PXSPLT"
+    mutable="true" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" >
+      <key-property column="tso_seq_no" name="tsoSequenceNumber" />
+      <key-property column="tso_split_no" name="serialNumber" />
+    </composite-id>
+
+    <!--set name="modules" cascade="all" lazy="true" inverse="true" outer-join="auto">
+       <cache usage="nonstrict-read-write"/>
+      <key>
+        <column name="tso_split_no"/>
+      </key>
+      <many-to-many class="com.freightliner.pcsparsing.impl.ModuleImpl" column="tso_split_no"/>
+    </set-->
+
+    <property name="buildDate" column="date_bld_rate" type="date"/>
+    <property name="customerName" column="cust_name_abbr" />
+    <property column="loc" name="buildLocation" />
+    <property column="veh_mdl_no" name="vehicleModelNumber" />
+    <property column="qty_split" name="quantitySplit" />
+    <property column="cwo_cnt" name="cwoCount" />
+    <property column="ord_status_cd" name="orderStatusCode" />
+    <property column="engr_status_cd" name="engineeringStatusCode" />
+    <property column="last_transl_date" name="lastTranslateDate" type="date"/>
+    <property column="last_tco_no" name="lastTcoNumber" />
+    <property column="engr_chg_lvl" name="engineeringChangeLevel" />
+    <property column="veh_ord_cl" name="vehicleOrderClass" />
+    <property column="cust_acct_no" name="customerAccountNumber" />
+    <property column="resp_id" name="respId" />
+    <property column="date_last_frame" name="lastFrameDate" type="date"/>
+    <property column="engr_to_mfg_rlse_d" name="engToMfgReleaseDate" type="date"/>
+    <property name="lastUpdated" column="dlu_spec" type="date"/>
+    <!-- new timestamp added -->
+    <property column="created_ts" name="createdTimeStamp"  type="timestamp"/>
+    
+
+  </class>
+</hibernate-mapping>

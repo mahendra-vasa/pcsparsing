@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+	<data-sources>
+	</data-sources>
+
+	<form-beans>
+    <form-bean
+      name="modulesForm"
+      type="org.apache.struts.action.DynaActionForm"/>
+
+    <form-bean name="truckForm" type="com.freightliner.pcsparsing.action.TruckActionForm"/>
+
+
+  </form-beans>
+
+	<global-exceptions>
+	</global-exceptions>
+
+	<global-forwards>
+	</global-forwards>
+
+	<action-mappings>
+		<action
+        path="/truck"
+        type="com.freightliner.pcsparsing.action.ViewTruckAction"
+        name="truckForm"
+        scope="request"
+        input="/truck.jsp"
+        validate="false">
+      <forward name="viewTruck" path="/truck.jsp"/>
+    </action>
+
+		<action
+        path="/modules"
+        type="com.freightliner.pcsparsing.action.ViewModulesAction"
+        name="modulesForm"
+        scope="request"
+        input="/modules.jsp"
+        validate="false">
+      <forward name="viewModules" path="/modules.jsp"/>
+    </action>
+
+	<action
+        path="/orderModule"
+        type="com.freightliner.pcsparsing.action.OrderModuleAction"
+        name="modulesForm"
+        scope="request"
+        input="/modules.jsp"
+        validate="false">
+      <forward name="viewModules" path="/modules.jsp"/>
+    </action>
+
+	<action
+        path="/updtBoms"
+        type="com.freightliner.pcsparsing.action.UpdateComponentItemAction"
+        validate="false">
+      <forward name="updtBOMs" path="/boms.jsp"/>
+    </action>
+
+	<action
+        path="/boms"
+        type="com.freightliner.pcsparsing.action.ViewBOMsAction"
+        validate="false">
+      <forward name="viewBOMs" path="/boms.jsp"/>
+    </action>
+
+	<action
+        path="/track"
+        type="com.freightliner.pcsparsing.action.ViewTrackAction"
+        validate="false">
+      <forward name="viewTrack" path="/track.jsp"/>
+    </action>
+
+    <action
+        path="/toggleIsTracked"
+        type="com.freightliner.pcsparsing.action.ToggleIsTrackedAction"
+        validate="false">
+      <forward name="viewTrack" path="/track.jsp"/>
+    </action>
+
+    <action
+        path="/addSerialNumber"
+        type="com.freightliner.pcsparsing.action.AddSerialNumberAction"
+        validate="false">
+      <forward name="viewTrack" path="/track.jsp"/>
+    </action>
+
+    <action
+        path="/deleteSerialNumber"
+        type="com.freightliner.pcsparsing.action.DeleteSerialNumberAction"
+        validate="false">
+      <forward name="viewTrack" path="/track.jsp"/>
+    </action>
+
+    <action
+        path="/toggleMTCreate"
+        type="com.freightliner.pcsparsing.action.ToggleMTCreate"
+        validate="false">
+      <forward name="viewTrack" path="/track.jsp"/>
+    </action>
+
+    <action
+        path="/updateDateNeeded"
+        type="com.freightliner.pcsparsing.action.AddSerialNumberAction"
+        validate="false">
+      <forward name="viewTrack" path="/track.jsp"/>
+    </action>
+
+	<action
+        path="/parse"
+        type="com.freightliner.pcsparsing.action.ViewParseAction"
+        validate="false">
+      <forward name="viewParse" path="/parse.jsp"/>
+    </action>
+
+    <action
+        path="/toggleIsParsed"
+        type="com.freightliner.pcsparsing.action.ToggleIsParsedAction"
+        validate="false">
+      <forward name="viewParse" path="/parse.jsp"/>
+    </action>
+
+	</action-mappings>
+
+</struts-config>

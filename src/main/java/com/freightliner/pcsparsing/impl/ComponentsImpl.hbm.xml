@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.ComponentImpl"
+    proxy="com.freightliner.pcsparsing.impl.ComponentImpl"
+    table="PXPCI"
+    mutable="false" >
+
+    <cache usage="nonstrict-read-write"/>
+
+     <composite-id unsaved-value="any" >        
+      <key-property column="tso_split_no" name="tsoSplitNumber" />     
+    </composite-id>
+
+	 <property column="tso_seq_no" name="tsoSequenceNumber" />
+    <property column="seq_no"     name="sequenceNumber" />
+    <property column="module_no"  name="moduleNumber"  />
+    <property column="item_no"    name="itemNumber" />
+    <property column="comp_item_no" name="compItemNo" />
+    <property column="comp_qty"     name="compQty" />
+    <property column="item_desc"    name="description " />
+    <property column="item_type"    name="typeCode " />
+    <property column="item_status"  name="status " />
+    <property column="dept_cntl_cd" name="departmentCode" />
+    <property column="purch_um"     name="purchasingUnitOfMeasure " />
+    <property column="mip_no"       name="mipNumber" />
+    <property column="drwg_rev_lvl" name="engRevisionLevel " />
+    <property column="mfg_prod_rev_lvl" name="mfgRevisionLevel " />
+    <property column="acct_no"          name="accountNumber" />
+    <property column="itar_restr_indc"  name="itarRestrIndc" />
+
+
+  </class>
+</hibernate-mapping>

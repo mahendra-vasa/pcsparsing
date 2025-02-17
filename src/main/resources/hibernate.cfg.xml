@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 2.0//EN"
+
+ "http://hibernate.sourceforge.net/hibernate-configuration-2.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.datasource">jdbc/PCSParsingDB</property>
+        <property name="jndi.class">com.ibm.websphere.naming.WsnInitialContextFactory</property>
+        <property name="dialect">net.sf.hibernate.dialect.DB2Dialect</property>
+        <property name="show_sql">false</property>
+        <property name="use_outer_join">true</property>
+        <property name="max_fetch_depth">10</property>
+        <property name="transaction.factory_class">net.sf.hibernate.transaction.JDBCTransactionFactory</property>
+        <property name="transaction.manager_lookup_class">net.sf.hibernate.transaction.WebSphereTransactionManagerLookup</property>
+        <property name="statement_cache.size">0</property>
+        <property name="jdbc.batch_size">0</property>
+        <property name="jdbc.use_scrollable_resultsets">1</property>
+        <property name="connection.pool_size">20</property>
+		<property name="cache.provider_class">net.sf.ehcache.hibernate.Provider</property>
+		<property name="cache.use_query_cache">true</property>
+			
+        <!-- mapping files -->
+        <mapping resource="com/freightliner/pcsparsing/impl/SerialNumberImpl.hbm.xml"/>
+	    <mapping resource="com/freightliner/pcsparsing/impl/TruckImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/ModuleImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/ModuleOrderImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/BOMImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/ComponentItemImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/LocationImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/UserActionImpl.hbm.xml"/>
+        <mapping resource="com/freightliner/pcsparsing/impl/ComponentImpl.hbm.xml"/>        
+
+    </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.ComponentItemImpl"
+    proxy="com.freightliner.pcsparsing.impl.ComponentItemImpl" table="PXPCI" mutable="false" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" >
+      <key-many-to-one name="bom" class="com.freightliner.pcsparsing.impl.BOMImpl" >
+        <column name="tso_seq_no" />
+        <column name="seq_no" />
+        <column name="tso_split_no" />
+        <column name="module_no" />
+        <column name="item_no" />
+      </key-many-to-one>
+      <key-property name="number" column="comp_item_no"/>
+    </composite-id>
+    
+
+    <set name="locations" cascade="all" lazy="true" inverse="true" outer-join="auto">
+      <cache usage="nonstrict-read-write"/>
+      <key>
+        <column name="tso_seq_no" />
+        <column name="seq_no" />
+        <column name="tso_split_no" />
+        <column name="module_no" />
+        <column name="item_no" />
+        <column name="comp_item_no" />
+      </key>
+      <one-to-many class="com.freightliner.pcsparsing.impl.LocationImpl"/>
+    </set>
+
+    <property column="dept_cntl_cd " name="departmentCode"/>
+    <property column="item_desc" name="description"/>
+    <property column="drwg_rev_lvl" name="engRevisionLevel"/>
+    <property column="mfg_prod_rev_lvl" name="mfgRevisionLevel"/>
+    <property column="item_status" name="status"/>
+    <property column="item_type" name="typeCode"/>
+    <property column="comp_qty" name="quantity"/>
+    <property column="purch_um" name="purchasingUnitOfMeasure"/>
+    <property column="acct_no" name="accountNumber"/>
+    <property column="mip_no" name="mipNumber"/>
+    <property column="itar_restr_indc"  name="itarRestrIndc" />
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.ModuleImpl"
+    proxy="com.freightliner.pcsparsing.impl.ModuleImpl" table="SENGRMOD" mutable="false" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" name="compID" class="com.freightliner.pcsparsing.impl.ModulePK">      
+      <key-property column="tso_split_no" name="serialNumber" />
+      <key-property column="module_no" name="number" />
+      <key-property column="seq_no" name="sequenceNumber" />
+    </composite-id>
+
+    <property column="module_desc" name="description" />
+
+    <set name="boms" cascade="all" lazy="true" outer-join="auto" >
+       <cache usage="nonstrict-read-write"/>
+      <key>
+       <column name="tso_split_no"/>
+       <column name="module_no"/>
+       <column name="seq_no" />
+      </key>
+      <one-to-many class="com.freightliner.pcsparsing.impl.BOMImpl"/>
+    </set>
+
+    <set name="departmentCodes" cascade="none" lazy="false" table="PXPCI" outer-join="auto">
+      <cache usage="nonstrict-read-write"/>
+      <key>
+        <column name="tso_split_no"/>
+        <column name="module_no"/>
+        <column name="seq_no"/>
+      </key>
+      <element column="dept_cntl_cd" type="string"/>
+    </set>
+
+		<one-to-one name="order" class="com.freightliner.pcsparsing.impl.ModuleOrderImpl" 
+		cascade="all" 
+		outer-join="auto" />
+
+    <!--set name="trucks" cascade="all" lazy="true" inverse="true" outer-join="auto">
+      <cache usage="nonstrict-read-write"/>
+			<key column="tso_split_no"/>
+      <many-to-many column="tso_split_no" class="com.freightliner.pcsparsing.impl.TruckImpl"/>
+    </set-->
+    
+  </class>
+</hibernate-mapping>

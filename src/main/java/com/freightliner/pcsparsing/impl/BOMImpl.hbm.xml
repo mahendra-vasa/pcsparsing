@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.BOMImpl"
+    proxy="com.freightliner.pcsparsing.impl.BOMImpl" table="PXEID" mutable="false" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" name="compID" class="com.freightliner.pcsparsing.impl.BOMPK">      
+      <key-property column="tso_seq_no" name="tsoSequenceNumber" />
+      <key-property column="seq_no" name="sequenceNumber" />
+      <key-property column="tso_split_no" name="serialNumber" />
+      <key-property column="module_no" name="moduleNumber" />
+      <key-property column="item_no" name="number" />
+    </composite-id>
+
+		<many-to-one name="module" class="com.freightliner.pcsparsing.impl.ModuleImpl" 
+		 cascade="none" outer-join="auto"
+		  insert="false" update="false">
+        <column name="tso_split_no"/>
+        <column name="module_no"/>
+        <column name="seq_no" />
+		</many-to-one>
+
+    <property column="item_no" name="number" insert="false" update="false" />
+    <property column="item_type" name="typeCode"/>
+    <property column="item_desc" name="description"/>
+    <property column="dept_cntl_cd " name="departmentCode"/>
+    <property column="drwg_rev_lvl" name="engRevisionLevel"/>
+    <property column="mfg_prod_rev_lvl" name="mfgRevisionLevel"/>
+    <property column="item_status" name="status"/>
+    <property column="purch_um" name="purchasingUnitOfMeasure"/>
+    <property column="acct_no" name="accountNumber"/>
+    <property column="mip_no" name="mipNumber"/>
+    <property column="bom_cwo_indc" name="cwoIndicator" />
+
+    <set name="items" cascade="all" lazy="false" outer-join="auto">
+      <cache usage="nonstrict-read-write"/>
+      <key>
+        <column name="tso_seq_no" />
+        <column name="seq_no" />
+        <column name="tso_split_no"/>
+        <column name="module_no"/>
+        <column name="item_no"/>
+      </key>
+      <one-to-many class="com.freightliner.pcsparsing.impl.ComponentItemImpl"/>
+    </set>
+
+  </class>
+</hibernate-mapping>

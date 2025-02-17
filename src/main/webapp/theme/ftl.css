@@ -1,0 +1,177 @@
+a:link { color: white; text-decoration: none;}
+a:visited{ color: white; text-decoration: none;}
+a:hover { color: white; text-decoration: none;}
+a:active { color: white; text-decoration: none;}
+
+div.tabs {
+	text-align: center;
+}
+
+span.tab {
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	border-width: 1px;
+	border-left-style: outset;
+	border-right-style: outset;
+	border-top-style: outset;
+	border-bottom-style: none;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+	padding-right: 12px;
+	background-color: #006699;
+}
+
+#selected_tab {
+	background-color: #003366;
+	border-bottom-color: #003366;
+	border-bottom-style: solid;
+}
+
+div#tbl-container {
+  width: 470px;
+  height: 440px;
+  overflow-x: hiden;
+  overflow-y: scroll;
+}
+
+div#tbl-bomcontainer {
+  width: 550px;
+  height: 440px;
+  overflow-x: hiden;
+  overflow-y: scroll;
+}
+
+div#selected_tab {
+  border-top: 1px inset;
+  border-right: 1px inset;
+  border-bottom: 1px inset;
+  border-left: 1px inset;
+}
+
+div#unselected_tab {
+  border-top: 1px inset;
+  border-right: 1px inset;
+  border-bottom: 1px inset;
+  border-left: 1px inset;
+
+}
+
+iframe {
+  border: 1px inset;
+}
+
+.table_frame {
+  border: 1px inset;
+	margin: 0 auto;
+	width: 600px;
+	height: 300px;
+	overflow: auto;
+}
+
+thead {
+ height: 20 px;
+}
+
+th {
+  background-color: #003366;
+  color: white;
+  font-family: Arial;
+	font-size: 9pt;
+	font-weight: bold;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th#title_centered {
+  text-align: center;
+}
+
+table {
+  border: none;
+  border-style: none;
+  border-collapse: collapse;
+	background-color: #eeeded;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: Arial;
+	font-size: 9pt;
+}
+
+td#icon {
+  text-align: right;
+  vertical-align: top;
+}
+
+tr#bom {
+	font-weight: bold;
+  vertical-align: top;
+}
+
+table#grid {
+	background-color: white;
+  text-align: left;
+	font-size: 8pt;
+	font-family: Arial;
+	vertical-align: top;
+}
+
+tr.module {
+  vertical-align: top;
+}
+
+.c_bluebar {
+	background-color: #003366;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  height: 24 px;
+	vertical-align: middle;
+}
+
+#t_combo {
+	color: black;
+	font-size: 8pt;
+	font-family: Arial;
+  margin-right: 8px;
+}
+
+
+#t_dialog_info_label {
+	font-family: Arial;
+	font-size: 9pt;
+	font-weight: bold;
+	color: black;
+	text-align: right;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+#t_text_button {
+	color: black;
+	font-weight: bold;
+	font-size: 9pt;
+	font-family: Arial;
+}
+
+.bluebar_label {
+	font-family: Arial;
+	font-size: 9pt;
+	font-weight: bold;
+	color: white;
+	text-align: left;
+  margin: 4px;
+  white-space: nowrap;
+}
+
+body {
+	background-color: #eeeded;
+	font-size: 9pt;
+	font-family: Arial;
+	margin: 12 20 20 20;
+}
+
+body#iframe {
+	margin: 0;
+}

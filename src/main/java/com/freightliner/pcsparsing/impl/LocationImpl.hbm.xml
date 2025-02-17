@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<!-- Source file resides in /etc/, and is copied into src/prod/com/freightliner/impl
+     by the Ant 'filter' task. Edits outside of /etc/ will be overriden. -->
+
+<hibernate-mapping>
+  <class name="com.freightliner.pcsparsing.impl.LocationImpl"
+    proxy="com.freightliner.pcsparsing.impl.LocationImpl" table="PXLCC" mutable="false" >
+
+    <cache usage="nonstrict-read-write"/>
+
+    <composite-id unsaved-value="any" >
+      <key-many-to-one name="item" class="com.freightliner.pcsparsing.impl.ComponentItemImpl" >
+        <column name="tso_seq_no" />
+        <column name="seq_no" />
+        <column name="tso_split_no" />
+        <column name="module_no" />
+        <column name="item_no" />
+        <column name="comp_item_no" />
+      </key-many-to-one>
+      <key-property name="loc" />
+    </composite-id>
+
+    <property column="crfa" name="crfa" />
+    <property column="prim_shop_addr" name="shopAddress" />
+    <property column="matl_plnr" name="matlPlanner" />
+    <property column="safety_stk" name="safetyStock" />
+    <property column="peg_3day_qty" name="peg3DayQuantity" />
+    <property column="peg_ldtm_qty" name="pegLeadTimeQuantity" />
+    <property column="chgovr_date" name="changeoverDate" type="date" />
+    <property column="prim_vndr_abbr" name="primaryVendorAbbr" />
+    <property column="scd_vndr_id" name="secondaryVendorId" />
+    <property column="alt_vndr_id" name="altVendorId" />
+    <property column="ldtm_ovrd" name="leadTime" />
+    <property column="net_avail" name="netAvailable" />
+    <property column="oh_tot_qty" name="ohTotalQuantity" />
+    <property column="cost_tot" name="totalCost" />
+    <property column="ords_cost_tot" name="ordsTotalCost" />
+
+  </class>
+</hibernate-mapping>
