@@ -36,6 +36,6 @@ jobs:
     - name: Push the Docker image to Docker hub
       run: |
           docker tag pcsparsing:latest mahendra83/pcsparsing:latest
+          docker push mahendra83/pcsparsing:latest
     - name: Run Docker image
       run: docker run --name pcsparsingear -d -p 9080:9080 mahendra83/pcsparsing:latest
-          docker push mahendra83/pcsparsing:latest
