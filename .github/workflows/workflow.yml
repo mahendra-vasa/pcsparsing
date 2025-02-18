@@ -5,7 +5,6 @@ on:
     branches:
     - main
     - release/*
-
 env:
   AWS_REGION: us-west-2
   ECR_REPOSITORY: 686255956504.dkr.ecr.us-west-2.amazonaws.com/dtna-ns/registry
@@ -25,17 +24,14 @@ jobs:
         java-version: '8.0'
         distribution: 'temurin'
         #server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        #settings-path: ${{ github.workspace }} # location for the settings.xml file
-
-#    - name: Build with Maven
-#      run: mvn -B package --file pom.xml    
-     - name: Configure AWS credentials
-       uses: aws-actions/configure-aws-credentials@v2
-       with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+        #settings-path: ${{ github.workspace }} # location for the settings.xml file  
+    - name: Set up JDK 8
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
 #       run: dt-aws-aad-sso login -p dtna-aws-test -r UnITe-Developer  
-     - name: Login to Amazon ECR
-       id: login-ecr
-       uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
