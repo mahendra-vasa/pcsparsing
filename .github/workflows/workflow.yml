@@ -6,10 +6,13 @@ on:
     - main
     - release/*
 
+env:
+  AWS_REGION: us-west-2
+  ECR_REPOSITORY: 686255956504.dkr.ecr.us-west-2.amazonaws.com/dtna-ns/registry
+
 jobs:
   build:
-    runs-on: ubuntu-latest
-    #runs-on: dt-csg-runtime
+    runs-on: ubuntu-latest    
     permissions:
       contents: read
       packages: write
@@ -25,17 +28,13 @@ jobs:
         #settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Build the Container image
-      run: docker build -t pcsparsing .        
-    - name: Login to Docker Hub
-      uses: docker/login-action@v3
+      run: mvn -B package --file pom.xml    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@0e613a0980cbf65ed5b322eb7a1e075d28913a83
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Push the Docker image to Docker hub
-      run: |
-          docker tag pcsparsing:latest mahendra83/pcsparsing:latest
-          docker push mahendra83/pcsparsing:latest
-    - name: Run Docker image
-      run: docker run --name pcsparsingear -d -p 9080:9080 mahendra83/pcsparsing:latest
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         aws-region: ${{ env.AWS_REGION }}      
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
